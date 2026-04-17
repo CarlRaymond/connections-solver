@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"c:\\\\sandbox\\\\connections\" && pwsh -File solve-puzzle.ps1)",
+      "PowerShell(Set-Location \"c:\\\\sandbox\\\\connections\" && pwsh -File scramble-puzzle.ps1 && Write-Host \"\" && pwsh -File solve-puzzle.ps1)"
+    ]
+  }
+}
