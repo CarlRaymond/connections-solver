@@ -1,0 +1,23 @@
+{
+  "name": "connections-solver",
+  "version": "1.0.0",
+  "description": "The input to this program comes from the daily Connections puzzle in the New York Times.\r There, 16 words appear in a grid, and the goal is to put them into four\r groups, where they are all related by some rule. They could be synonyms, parts of a whole,\r words that precede or follow another word in a compound or phrase, or have some other\r relationship. A guess is entered by clicking on four words, and then clicking the Submit button.\r If the guess is correct, the words in the grid will rearrange with an animation to bring the\r selected group into a horizontal row, and the remaining words will arrange themselves under the\r solved rows.",
+  "main": "fetch-puzzle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlRaymond/connections-solver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlRaymond/connections-solver/issues"
+  },
+  "homepage": "https://github.com/CarlRaymond/connections-solver#readme",
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}

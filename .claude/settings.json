@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($r = Invoke-WebRequest *)",
+      "PowerShell($response = Invoke-WebRequest *)",
+      "PowerShell($content = Invoke-WebRequest *)",
+      "PowerShell(pwsh -File *)",
+      "PowerShell(pwsh -File \"c:\\\\sandbox\\\\connections-solver\\\\*)"
+    ]
+  }
+}

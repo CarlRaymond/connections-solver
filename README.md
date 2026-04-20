@@ -4,7 +4,13 @@ The input to this program comes from the daily Connections puzzle in the New Yor
 There, 16 words appear in a grid, and the goal is to put them into four
 groups, where they are all related by some rule. They could be synonyms, parts of a whole,
 words that precede or follow another word in a compound or phrase, or have some other
-relationship.
+relationship. A guess is entered by clicking on four words, and then clicking the Submit button.
+If the guess is correct, the words in the grid will rearrange with an animation to bring the
+selected group into a horizontal row, and the remaining words will arrange themselves under the
+solved rows.
+
+Up to four bad guesses are allowed. After the last bad guess, the answer will be revealed
+as the words animate into their grops.
 
 Each group, when entered into the puzzle correcly, will have a color associated with
 it (yellow, green, blue, or purple). The colors correspond to difficulty: the most
