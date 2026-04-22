@@ -16,6 +16,14 @@ function puzzleDate(id) {
   return d.toISOString().substring(0, 10);
 }
 
+function parseArg(arg) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(arg)) {
+    const ms = new Date(arg + 'T00:00:00Z') - BASE_DATE;
+    return Math.round(ms / 86400000) + 1;
+  }
+  return parseInt(arg, 10);
+}
+
 function outPath(id) {
   return path.join(OUT_DIR, `puzzle-${puzzleDate(id)}.csv`);
 }
@@ -106,14 +114,21 @@ async function fetchPuzzle(browser, gameId) {
 }
 
 async function main() {
-  const startId   = parseInt(process.argv[2] || '1',  10);
-  const endId     = parseInt(process.argv[3] || '1100', 10);
-  const concurrency = parseInt(process.argv[4] || '3', 10);
+  const args = process.argv.slice(2).filter(a => a !== '--force' && a !== '-f');
+  const force = process.argv.includes('--force') || process.argv.includes('-f');
+  const [arg2, arg3] = args;
+  const startId     = arg2 ? parseArg(arg2) : 1;
+  const endId       = arg3 ? parseArg(arg3) : (arg2 ? startId : 1100);
+  const concurrency = parseInt(args[2] || '3', 10);
 
   // Determine which puzzles still need fetching
   const todo = [];
   for (let id = startId; id <= endId; id++) {
-    if (!fs.existsSync(outPath(id))) todo.push(id);
+    if (force || !fs.existsSync(outPath(id))) {
+      todo.push(id);
+    } else {
+      console.log(`[${id}] ${puzzleDate(id)} — already exists, skipping (use --force to overwrite)`);
+    }
   }
 
   console.log(`Fetching ${todo.length} puzzles (${startId}–${endId}), concurrency=${concurrency}`);
